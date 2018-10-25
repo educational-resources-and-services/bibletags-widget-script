@@ -1,0 +1,27 @@
+{
+  "name": "bibletags-widget-script",
+  "scripts": {
+    "deploy": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/educational-resources-and-services/bibletags-widget.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/educational-resources-and-services/bibletags-widget/issues"
+  },
+  "homepage": "https://bibletags.org",
+  "dependencies": {
+    "shelljs": "0.8.2",
+    "uglify-es": "3.3.9"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "babel-loader": "8.0.4",
+    "webpack": "4.23.0",
+    "webpack-cli": "3.1.2"
+  }
+}
