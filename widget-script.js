@@ -26,16 +26,18 @@
   // set widget domain and url per the environment
   let widgetDomain, widgetUrl;
 
-  if(scriptParamObject.env === 'local') {
+  if(scriptParamObject.widget === 'local') {
     widgetDomain = '*';
     widgetUrl = `http://localhost:3000/index.html`;
-  } else if(scriptParamObject.env === 'staging') {
+  } else if(scriptParamObject.widget === 'staging') {
     widgetDomain = 'https://cdn.staging.bibletags.org';
     widgetUrl = `${widgetDomain}/widget/build/index.html`;
   } else {
     widgetDomain = 'https://cdn.bibletags.org';
     widgetUrl = `${widgetDomain}/widget/build/index.html`;
   }
+
+  const widgetUrlHash = `#data=${scriptParamObject.data || ''}`;
 
   let onDeckInstances = [];
   let utilityInstance;
@@ -193,7 +195,7 @@
 
     // create iframe with widget
     const iframeEl = newEl('iframe', {
-      src: widgetUrl + (isUtility ? "#utility" : ""),
+      src: `${widgetUrl}${widgetUrlHash}${(isUtility ? "&utility=1" : "")}`,
       style: `
         position: absolute;
         top: 0;
