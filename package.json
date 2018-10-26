@@ -1,7 +1,9 @@
 {
   "name": "bibletags-widget-script",
   "scripts": {
-    "deploy": "webpack"
+    "deploy": "webpack",
+    "dev": "npm run open-widget-test",
+    "open-widget-test": "opn open-widget-test.html"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
     "@babel/plugin-proposal-object-rest-spread": "7.0.0",
     "@babel/preset-env": "7.1.0",
     "babel-loader": "8.0.4",
+    "opn-cli": "3.1.0",
     "webpack": "4.23.0",
     "webpack-cli": "3.1.2"
   }

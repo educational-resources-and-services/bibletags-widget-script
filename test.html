@@ -17,7 +17,15 @@
 
       const s = document.createElement('script');
       s.id = 'bibletags-widget-script';
-      s.src = queryParamObject.build ? `widget-script-builds/${queryParamObject.build}` : `widget-script.js`
+      s.src = (
+        queryParamObject.build
+          ? `widget-script-builds/widget-script-${queryParamObject.build}.js`
+          : (
+            queryParamObject.testBuild
+              ? `widget-script-test-builds/widget-script-${queryParamObject.testBuild}.js`
+              : `widget-script.js`
+          )
+        )
         + `#widget=${queryParamObject.widget || ``}`
         + `&data=${queryParamObject.data || ``}`;
       document.head.appendChild(s);

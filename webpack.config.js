@@ -10,7 +10,7 @@ module.exports = (env={}) => {
   return {
     entry: './widget-script.js',
     output: {
-      path: path.resolve(__dirname, 'widget-script-builds'),
+      path: path.resolve(__dirname, `widget-script-${!env.version ? 'test-' : ''}builds`),
       filename: `widget-script-${env.version ? `v${env.version}` : Date.now()}.js`,
     },
     module: {
