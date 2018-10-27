@@ -474,7 +474,7 @@
         handleResponse: ({ data }) => {
           switch(data.action) {
             case 'reportCorrespondingVerseLocations':
-              callback(data.payload.verseLocations);
+              callback && callback(data.payload.verseLocations);
               break;
           }
         },
@@ -492,7 +492,7 @@
         handleResponse: ({ data }) => {
           switch(data.action) {
             case 'reportWordsArray':
-              callback(data.payload.words);
+              callback && callback(data.payload.words);
               break;
           }
         },
