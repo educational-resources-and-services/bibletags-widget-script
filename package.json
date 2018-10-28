@@ -2,8 +2,9 @@
   "name": "bibletags-widget-script",
   "scripts": {
     "deploy": "webpack",
-    "dev": "npm run open-widget-test",
-    "open-widget-test": "opn open-widget-test.html"
+    "dev": "npm run open",
+    "open": "opn open-widget-test.html",
+    "start": "npm run open"
   },
   "repository": {
     "type": "git",
