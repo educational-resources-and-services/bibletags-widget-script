@@ -396,7 +396,7 @@
         delete partialOptions.containerEl;
         (partialOptions.addlOptions || []).forEach(option => option.callback = !!option.callback);
         partialOptions.fetchVerseCallback = !!partialOptions.fetchVerseCallback;
-        partialOptions.jumpToLocationCallback = !!partialOptions.jumpToLocationCallback;
+        if(partialOptions.jumpToLocation) partialOptions.jumpToLocation.callback = !!partialOptions.jumpToLocation.callback;
         if(partialOptions.searchData) partialOptions.searchData.callback = !!partialOptions.searchData.callback;
         partialOptions.infoCallback = !!partialOptions.infoCallback;
 
@@ -477,37 +477,43 @@
 
     getCorrespondingVerseLocations: ({ callback, ...options }={}) => {
 
-      performActionOnUtilityInstance({
-        action: 'getCorrespondingVerseLocations',
-        payload: {
-          options,
-        },
-        handleResponse: ({ data }) => {
-          switch(data.action) {
-            case 'reportCorrespondingVerseLocations':
-              callback && callback(data.payload.verseLocations);
-              break;
-          }
-        },
-      });
+      return new Promise(resolve => {
+        performActionOnUtilityInstance({
+          action: 'getCorrespondingVerseLocations',
+          payload: {
+            options,
+          },
+          handleResponse: ({ data }) => {
+            switch(data.action) {
+              case 'reportCorrespondingVerseLocations':
+                callback && callback(data.payload.verseLocations)
+                resolve(data.payload.verseLocations)
+                break
+            }
+          },
+        })
+      })
 
     },
 
     splitVerseIntoWords: ({ callback, ...options }={}) => {
 
-      performActionOnUtilityInstance({
-        action: 'splitVerseIntoWords',
-        payload: {
-          options,
-        },
-        handleResponse: ({ data }) => {
-          switch(data.action) {
-            case 'reportWordsArray':
-              callback && callback(data.payload.words);
-              break;
-          }
-        },
-      });
+      return new Promise(resolve => {
+        performActionOnUtilityInstance({
+          action: 'splitVerseIntoWords',
+          payload: {
+            options,
+          },
+          handleResponse: ({ data }) => {
+            switch(data.action) {
+              case 'reportWordsArray':
+                callback && callback(data.payload.words)
+                resolve(data.payload.words)
+                break
+            }
+          },
+        })
+      })
 
     },
 
