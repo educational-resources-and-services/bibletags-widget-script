@@ -18,11 +18,11 @@
       const s = document.createElement('script');
       s.id = 'bibletags-widget-script';
       s.src = (
-        queryParamObject.build
-          ? `widget-script-builds/widget-script-${queryParamObject.build}.js`
+        queryParamObject.widgetScriptBuild
+          ? `widget-script-builds/widget-script-${queryParamObject.widgetScriptBuild}.js`
           : (
-            queryParamObject.testBuild
-              ? `widget-script-test-builds/widget-script-${queryParamObject.testBuild}.js`
+            queryParamObject.widgetScriptTestBuild
+              ? `widget-script-test-builds/widget-script-${queryParamObject.widgetScriptTestBuild}.js`
               : `widget-script.js`
           )
         )
