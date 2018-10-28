@@ -324,6 +324,17 @@
 
     setUp: (options={}) => {
       settings = options || {};
+
+      const partialSettings = { ...settings }
+      delete partialSettings.containerEls
+
+      performActionOnUtilityInstance({
+        action: 'setUp',
+        payload: {
+          settings: partialSettings,
+        },
+      });
+
       loadOnDeckInstances();
     },
 
@@ -377,8 +388,8 @@
         // load event.
         // iframeEl.loaded = false;
 
-        const partialSettings = Object.assign({}, settings);
-        const partialOptions = Object.assign({}, options);
+        const partialSettings = { ...settings }
+        const partialOptions = { ...options }
 
         delete partialSettings.containerEls;
         delete partialOptions.anchorEl;
