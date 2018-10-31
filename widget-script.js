@@ -290,19 +290,31 @@
     delete instances[id];
   };
 
+  const postMessage = ({ iframeWindow, action, payload }) => {
+
+    // get rid of any non-transferable aspects to the payload
+    payload = JSON.parse(JSON.stringify(payload))
+
+    iframeWindow.postMessage({
+      action,
+      payload,
+    }, widgetDomain)
+  }
+
   const performActionOnUtilityInstance = ({ action, payload, handleResponse }) => {
     let { widgetEl, iframeEl, actionIndexResponseMap } = getUtilityInstance();
     const actionIndex = utilityActionIndex++;
 
     // postMessage the options upon iframe load 
     const sendActionMessage = () => {
-      iframeEl.contentWindow.postMessage({
+      postMessage({
+        iframeWindow: iframeEl.contentWindow,
         action,
         payload: {
           ...payload,
           actionIndex,
         },
-      }, widgetDomain);
+      })
     }
 
     if(handleResponse) {
@@ -327,13 +339,10 @@
     setUp: (options={}) => {
       settings = options || {};
 
-      const partialSettings = { ...settings }
-      delete partialSettings.containerEls
-
       performActionOnUtilityInstance({
         action: 'setUp',
         payload: {
-          settings: partialSettings,
+          settings,
         },
       });
 
@@ -390,25 +399,14 @@
         // load event.
         // iframeEl.loaded = false;
 
-        const partialSettings = { ...settings }
-        const partialOptions = { ...options }
-
-        delete partialSettings.containerEls;
-        delete partialOptions.anchorEl;
-        delete partialOptions.containerEl;
-        (partialOptions.addlOptions || []).forEach(option => option.callback = !!option.callback);
-        partialOptions.fetchVerseCallback = !!partialOptions.fetchVerseCallback;
-        if(partialOptions.jumpToLocation) partialOptions.jumpToLocation.callback = !!partialOptions.jumpToLocation.callback;
-        if(partialOptions.searchData) partialOptions.searchData.callback = !!partialOptions.searchData.callback;
-        partialOptions.infoCallback = !!partialOptions.infoCallback;
-
-        iframeEl.contentWindow.postMessage({
+        postMessage({
+          iframeWindow: iframeEl.contentWindow,
           action: 'show',
           payload: {
-            settings: partialSettings,
-            options: partialOptions,
+            settings,
+            options,
           },
-        }, widgetDomain);
+        })
       }
 
       // set up postMessage communcation
