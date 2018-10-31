@@ -267,13 +267,15 @@
       d.body,
     ].slice(0,10).forEach(containerEl => {
 
-      if(onDeckInstanceContainers.includes(containerEl)) return;
+      if(onDeckInstanceContainers.includes(containerEl)) return
   
-      const onDeckInstance = getInstanceTemplate();
+      const onDeckInstance = getInstanceTemplate()
   
-      onDeckInstances.push(onDeckInstance);
-      makeRelativeIfStatic(containerEl);
-      containerEl.appendChild(onDeckInstance.widgetEl);
+      onDeckInstances.push(onDeckInstance)
+      makeRelativeIfStatic(containerEl)
+      containerEl.appendChild(onDeckInstance.widgetEl)
+
+      onDeckInstanceContainers.push(containerEl)
     })
 
     // load the utility instance as well, if it does not yet exist
