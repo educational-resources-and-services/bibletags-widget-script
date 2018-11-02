@@ -43,13 +43,13 @@
       window.show1 = function() {
         window.widgetIds.push(window.bibleTagsWidget.show({
           versions: [{
-            versionId: 'oshb',
-            // content: 'In the beginning, God created the heavens and the earth.',
-            // usfm: string,  // allows for inline styles and notes
-            bookId: 21,  // 1-66 (kjv ordering)
-            chapter: 5,  // 1-150
-            verse: 5,  // 0-176; 0 for psalm headings
-            wordNum: 2,
+            id: 'oshb',
+            ref: {
+              bookId: 21,  // 1-66 (kjv ordering)
+              chapter: 5,  // 1-150
+              verse: 5,  // 0-176; 0 for psalm headings
+              wordNum: 2,
+            },
           }],
           containerEl: document.getElementById('div1'),
           anchorEl: document.getElementById("show1"),
