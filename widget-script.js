@@ -301,7 +301,7 @@
     }, widgetDomain)
   }
 
-  const performActionOnUtilityInstance = ({ action, payload, handleResponse }) => {
+  const performActionOnUtilityInstance = ({ action, payload={}, handleResponse }) => {
     let { widgetEl, iframeEl, actionIndexResponseMap } = getUtilityInstance();
     const actionIndex = utilityActionIndex++;
 
@@ -333,7 +333,9 @@
   d.head.appendChild(styleEl);
 
   w.addEventListener('load', loadOnDeckInstances);
-  
+
+  performActionOnUtilityInstance({ action: '-' });  // gets the embeddingAppId retrieved and set
+
   w.bibleTagsWidget = {
 
     setUp: (options={}) => {
