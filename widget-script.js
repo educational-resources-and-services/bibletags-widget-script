@@ -477,19 +477,40 @@
       }
     },
 
-    getCorrespondingVerseLocations: ({ callback, ...options }={}) => {
+    getCorrespondingLocations: ({ callback, ...options }={}) => {
 
       return new Promise(resolve => {
         performActionOnUtilityInstance({
-          action: 'getCorrespondingVerseLocations',
+          action: 'getCorrespondingLocations',
           payload: {
             options,
           },
           handleResponse: ({ data }) => {
             switch(data.action) {
-              case 'reportCorrespondingVerseLocations':
-                callback && callback(data.payload.verseLocations)
-                resolve(data.payload.verseLocations)
+              case 'reportCorrespondingLocations':
+                callback && callback(data.payload.versions)
+                resolve(data.payload.versions)
+                break
+            }
+          },
+        })
+      })
+
+    },
+
+    getOriginalLanguageRef: ({ callback, ...options }={}) => {
+
+      return new Promise(resolve => {
+        performActionOnUtilityInstance({
+          action: 'getOriginalLanguageRef',
+          payload: {
+            options,
+          },
+          handleResponse: ({ data }) => {
+            switch(data.action) {
+              case 'reportOriginalLanguageRef':
+                callback && callback(data.payload.ref)
+                resolve(data.payload.ref)
                 break
             }
           },

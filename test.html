@@ -42,11 +42,13 @@
       }
       window.show1 = function() {
         window.widgetIds.push(window.bibleTagsWidget.show({
-          originalLanguageRef: {
-            bookId: 21,  // 1-66 (kjv ordering)
-            chapter: 5,  // 1-150
-            verse: 5,  // 0-176; 0 for psalm headings
-            wordNum: 2,
+          multipleVersions: {
+            originalLanguageRef: {
+              bookId: 21,  // 1-66 (kjv ordering)
+              chapter: 5,  // 1-150
+              verse: 5,  // 0-176; 0 for psalm headings
+              wordNum: 2,
+            },
           },
           containerEl: document.getElementById('div1'),
           anchorEl: document.getElementById("show1"),
