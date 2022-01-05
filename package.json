@@ -1,5 +1,6 @@
 {
-  "name": "bibletags-widget-script",
+  "name": "@bibletags/bibletags-widget-script",
+  "version": "0.1.0",
   "scripts": {
     "deploy": "webpack",
     "dev": "npm run open",
@@ -8,13 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/educational-resources-and-services/bibletags-widget.git"
+    "url": "git+https://github.com/educational-resources-and-services/bibletags-widget-script.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/educational-resources-and-services/bibletags-widget/issues"
+    "url": "https://github.com/educational-resources-and-services/bibletags-data/issues"
   },
   "homepage": "https://bibletags.org",
+  "author": "Andy Hubert",
+  "funding": {
+    "type" : "individual",
+    "url" : "https://gofundme.com/f/yarn4-bible-tags"
+  },
   "dependencies": {
     "shelljs": "0.8.2",
     "uglify-es": "3.3.9"
