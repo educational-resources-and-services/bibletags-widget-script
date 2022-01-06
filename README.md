@@ -26,3 +26,5 @@ For more information on this project, see the [Bible Tags website](https://bible
 # bibletags-widget-script
 
 A lightweight script used to embed [bibletags-widget](https://github.com/educational-resources-and-services/bibletags-widget).
+
+**IMPORTANT NOTE: This aspect of the Bible Tags project has been placed on hold while focus is given to the React Native app. [More on project phases](https://bibletags.org/phases).**
