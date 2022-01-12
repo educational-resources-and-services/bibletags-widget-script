@@ -28,3 +28,15 @@ For more information on this project, see the [Bible Tags website](https://bible
 A lightweight script used to embed [bibletags-widget](https://github.com/educational-resources-and-services/bibletags-widget).
 
 **IMPORTANT NOTE: This aspect of the Bible Tags project has been placed on hold while focus is given to the React Native app. [More on project phases](https://bibletags.org/phases).**
+
+## Basic information
+
+* launches the widget in iframes using postMessage for communication
+* contains no dependencies
+* uglified upon deployment
+* lives on a cdn
+* holds as little logic as possible so as to rarely change, since each change requires an embed tag update
+
+## Development
+
+See [bibletags-widget](https://github.com/educational-resources-and-services/bibletags-widget).
