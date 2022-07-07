@@ -10,7 +10,7 @@ For more information on this project, see the [Bible Tags website](https://bible
 
 ## Repos
 
-* [bibletags-data](https://github.com/educational-resources-and-services/bibletags-data) **(Contains general information on project design and contributing.)**
+* [bibletags-data](https://github.com/educational-resources-and-services/bibletags-data)
 * [bibletags-react-native-app](https://github.com/educational-resources-and-services/bibletags-react-native-app)
 * [bibletags-ui-helper](https://github.com/educational-resources-and-services/bibletags-ui-helper)
 * [bibletags-versification](https://github.com/educational-resources-and-services/bibletags-versification)
@@ -20,9 +20,7 @@ For more information on this project, see the [Bible Tags website](https://bible
 
 ## Bugs
 
-* See [here](https://github.com/educational-resources-and-services/bibletags-data/issues).
-* Please first check if your bug report / feature request already exists before submitting a new issue.
-* For bug reports, please provide a clear description of the problem and step-by-step explanation of how to reproduce it.
+* Report [here](https://github.com/educational-resources-and-services/bibletags-data/issues).
 
 # bibletags-widget-script
 
@@ -32,11 +30,11 @@ A lightweight script used to embed [bibletags-widget](https://github.com/educati
 
 ## Basic information
 
-* launches the widget in iframes using postMessage for communication
-* contains no dependencies
-* uglified upon deployment
-* lives on a cdn
-* holds as little logic as possible so as to rarely change, since each change requires an embed tag update
+* Launches the widget in iFrames using postMessage for communication
+* Contains no dependencies
+* Uglified upon deployment
+* Lives on a cdn
+* Holds as little logic as possible so as to rarely change, since each change requires an embed tag update
 
 ## Development
 
